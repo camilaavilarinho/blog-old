@@ -1,7 +1,7 @@
 ---
 slug: dataset
 date: 2019-04-17
-title: 'html data-* attributes'
+title: 'HTML data-* attributes'
 description: 'Allow us to store extra information on standard, semantic HTML elements without other hacks'
 published: true
 banner: './banner.png'
