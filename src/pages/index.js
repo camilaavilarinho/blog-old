@@ -8,9 +8,18 @@ import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
 import theme from '../../config/theme'
 import { fonts } from '../lib/typography'
-import { Twitter, GitHub, LinkedIn } from '../components/Social'
+import {
+  Twitter,
+  GitHub,
+  LinkedIn,
+  Codepen,
+  Mail,
+  Medium,
+} from '../components/Social'
 import Img from 'gatsby-image'
 import { bpMaxSM } from '../lib/breakpoints'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
 
 const Hero = () => (
   <section
@@ -64,6 +73,9 @@ const Hero = () => (
         <Twitter />
         <GitHub />
         <LinkedIn />
+        <Codepen />
+        <Mail />
+        <Medium />
       </div>
     </Container>
     <div
@@ -86,10 +98,10 @@ const PostTitle = styled.h3`
   }
 `
 
-const Description = styled.p`
+/* const Description = styled.p`
   margin-bottom: 10px;
   display: inline-block;
-`
+` */
 
 export default function Index({ data: { site, allMdx } }) {
   return (
@@ -99,7 +111,24 @@ export default function Index({ data: { site, allMdx } }) {
       headerBg={theme.brand.primary}
     >
       <Hero />
+      <div
+        css={css`
+          margin: 0 auto;
+          padding: 30px;
+        `}
+      >
+        <a href="#flashcards">
+          <FontAwesomeIcon
+            css={css`
+              color: ${theme.colors.orange};
+            `}
+            icon={faChevronCircleDown}
+            size="2x"
+          />
+        </a>
+      </div>
       <Container
+        id="flashcards"
         css={css`
           padding-bottom: 0;
           margin-top: -20px;
@@ -107,7 +136,13 @@ export default function Index({ data: { site, allMdx } }) {
         `}
       >
         <h2>Flashcards</h2>
-        <p css={css`font-style: italic;`}>Random things and tricks I learn in my coding journey...</p>
+        <p
+          css={css`
+            font-style: italic;
+          `}
+        >
+          Random things and tricks I learn in my coding journey...
+        </p>
         <div
           css={css`
             display: grid;
